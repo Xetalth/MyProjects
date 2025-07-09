@@ -1,0 +1,254 @@
+
+        :root {
+            --main-bg: #EAF6FF;
+            --accent: #6EC1E4;
+            --mint: #A2D5F2;
+            --purple: #B388FF;
+            --text: #355C7D;
+            --card-bg: #FFFFFF;
+            --hover: #e9fae6;
+            --brand: linear-gradient(90deg, #6EC1E4 60%, #B388FF 100%);
+            --custom-card-bg: #e3d6ec; /* Daha nötr, hafif pembe-mor arası */
+            --main-font: 'Fredoka', 'Quicksand', cursive ;
+        }
+        /* Dark theme variables */
+        .dark-theme {
+            --main-bg: #232144; /* Koyu mor-lacivert arası arka plan */
+            --accent: #7dcfff;
+            --mint: #4fd1c5;
+            --purple: #7f5af0;
+            --text: #e0e6ed;
+            --card-bg: #2d313a;
+            --hover: #353b48;
+            --brand: linear-gradient(90deg, #7dcfff 60%, #7f5af0 100%);
+            --custom-card-bg: #4d0de444; /* Koyu mor-pembe arası kart rengi */
+        }
+
+        body {
+            
+            background: var(--main-bg);
+            color: var(--text);
+            font-family: var(--main-font);
+        }
+        .brand {
+            background: var(--brand) !important;
+        }
+        .brand-logo{
+            font-size: 36px !important;
+        }
+        .brand-text {
+            background: var(--brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: var(--main-font) !important;
+            font-size: 1.7rem;
+            line-height: 1.4;
+        }
+        
+
+        .text{
+            color: var(--text) !important;
+            font-family: var(--main-font) !important;
+        }
+
+        .hover-effect{
+            transition: all 0.3s ease,background-color 0.3s ease;
+        }
+        .hover-effect:hover {
+            transform: scale(1.05);
+            background-color: var(--hover);
+            
+        }
+
+        nav {
+            display: flex;
+            background-color: var(--card-bg) !important;
+            border-bottom: 4px;
+            border-bottom-left-radius: 36px;
+            border-bottom-right-radius: 36px;
+            border-bottom-style: dotted;
+            border-bottom-color: var(--accent);
+        }
+        .btn{
+            border-radius: 36px ;
+            color: var(--text);
+            font-family: var(--main-font) !important;
+        }
+        .profile-btn{
+            position: relative;
+            top: 5px;
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand) !important;
+            overflow: hidden;
+        }
+        .profile-btn img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+
+        }
+        .profile-card{
+            left: 80px;
+            position:absolute;
+            top: 100px;
+            width: 350px;
+            height: auto;
+            background-color: var(--custom-card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            font-family: var(--main-font);
+            color: var(--text);
+            overflow-wrap: break-word;
+        }
+        .profile-card-img-container{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .profile-card-img{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent); /* Varsa renk teması ile uyumlu */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+        .filter{
+            position: absolute;
+            height: 700px;
+            width: 350px;
+            border-radius: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            background-color: var(--custom-card-bg);
+            border-radius:14px;
+            width:100%; 
+            margin-bottom:43px; 
+            max-width:520px; 
+            margin-left:auto; 
+            margin-right:auto; 
+            padding: 0.5rem 0;
+        }
+        .form-card{
+            justify-content:space-between;
+            background-color: var(--custom-card-bg);
+            border-radius:14px;
+            width:100%; 
+            margin-bottom:43px; 
+            max-width:620px; 
+            margin-left:auto; 
+            margin-right:auto; 
+            padding: 16px 0;
+            font-family: var(--main-font);
+            
+        }
+        .form-card-content{
+            padding: 24px;
+        }
+        .filter-card{
+            border-radius: 32px;
+            height: 600px;
+            width: 250px;
+            background-color: var(--custom-card-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+        }
+        .search-bar{
+            background-color: var(--purple) !important;
+            color: var(--text) !important;
+            width: 170px !important;
+            border: 2px solid var(--accent) !important;
+            border-radius: 10px !important;
+        }
+        @media (max-width: 768px) {
+
+    body {
+        padding: 8px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .brand-logo {
+        font-size: 24px !important;
+    }
+
+    .brand-text {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .profile-card {
+        position: static;
+        width: 90%;
+        margin: 16px auto;
+        left: auto;
+        top: auto;
+    }
+
+    .filter {
+        position: static;
+        width: 90%;
+        height: auto;
+        margin: 16px auto;
+        padding: 16px;
+    }
+
+    .filter-card {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+    }
+
+    .card,
+    .form-card {
+        width: 95%;
+        max-width: 100%;
+        margin: 16px auto;
+    }
+
+    .search-bar {
+        width: 100% !important;
+    }
+
+    .profile-btn {
+        width: 40px;
+        height: 40px;
+        top: 0;
+    }
+
+    .profile-card-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .form-card-content {
+        padding: 16px;
+    }
+}
+
+        

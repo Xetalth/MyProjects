@@ -213,8 +213,8 @@ function formatRole($u_role) {
                             <img src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="" style="max-width:90%; margin-top:12px; border-radius: 10px;">
                         <?php endif; ?>
                         <?php endif; ?>
-                        <div class="card-action right-align" style="margin-top:12px;">
-                            <small class="text" style="position: absolute; left:20px; bottom:20px; font-size: 14px;">
+                        <div class="card-action right-align" style="margin-top:12px; display: flex; justify-content: space-between; align-items: center;">
+                            <small class="text" style="bottom:20px; font-size: 14px;">
                                 <?php echo date('d M Y', strtotime($post['created_at'] ?? '')); ?>
                             </small>
                             <?php if ($_SESSION['u_id'] == $post['u_id']): ?>

@@ -163,8 +163,8 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <?php endif; ?>
             </div>
 
-            <div class="card-action right-align" style="margin-top:12px;">
-                <small class="text" style="position: absolute; left:20px; bottom:20px; font-size: 14px;">
+            <div class="card-action" style="margin-top:12px; display: flex; justify-content: space-between; align-items: center;">
+                <small class="text" style=" left:20px; bottom:20px; font-size: 14px;">
                     <?php echo date('d M Y', strtotime($post['created_at'] ?? '')); ?>
                 </small>
 

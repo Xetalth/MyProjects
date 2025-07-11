@@ -21,7 +21,7 @@
             --card-bg: #2d313a;
             --hover: #353b48;
             --brand: linear-gradient(90deg, #7dcfff 60%, #7f5af0 100%);
-            --custom-card-bg: #4d0de444; /* Koyu mor-pembe arası kart rengi */
+            --custom-card-bg: #2d0194; /* Koyu mor-pembe arası kart rengi */
         }
 
         body {
@@ -30,6 +30,7 @@
             color: var(--text);
             font-family: var(--main-font);
         }
+        
         .brand {
             background: var(--brand) !important;
         }
@@ -53,7 +54,7 @@
         }
 
         .hover-effect{
-            transition: all 0.3s ease,background-color 0.3s ease;
+            transition: all 0.3s ease,background-color 0.3s ease !important;
         }
         .hover-effect:hover {
             transform: scale(1.05);
@@ -62,7 +63,7 @@
         }
 
         nav {
-            display: flex;
+            
             background-color: var(--card-bg) !important;
             border-bottom: 4px;
             border-bottom-left-radius: 36px;
@@ -71,7 +72,8 @@
             border-bottom-color: var(--accent);
         }
         .btn{
-            border-radius: 36px ;
+            
+            border-radius: 36px !important;
             color: var(--text);
             font-family: var(--main-font) !important;
         }
@@ -101,9 +103,7 @@
 
         }
         .profile-card{
-            left: 80px;
-            position:absolute;
-            top: 100px;
+            margin-left: 80px;
             width: 350px;
             height: auto;
             background-color: var(--custom-card-bg);
@@ -129,7 +129,6 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
         .filter{
-            position: absolute;
             height: 700px;
             width: 350px;
             border-radius: 32px;
@@ -137,15 +136,36 @@
             justify-content: center;
             align-items: center;
         }
+        .card-container {
+            display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr 2fr 1fr; /* 3 sütun: sol 1 birim, orta 2 birim, sağ 1 birim */
+            gap: 20px;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .g_left, .g_center, .g_right {
+            padding: 20px;
+            border-radius: 10px;
+        }
         .card{
             background-color: var(--custom-card-bg);
             border-radius:14px;
-            width:100%; 
-            margin-bottom:43px; 
-            max-width:520px; 
-            margin-left:auto; 
-            margin-right:auto; 
+            width: 900px; 
+            max-width:520px;  
             padding: 0.5rem 0;
+        }
+        .card-action{
+            background-color: var(--custom-card-bg) !important;
+            margin-top: 0 !important;
+            margin-bottom: 30px !important;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-evenly !important;
+            align-items: center !important;
+            margin-bottom: 12px;
+            border-radius:14px;
         }
         .form-card{
             justify-content:space-between;
@@ -164,14 +184,18 @@
             padding: 24px;
         }
         .filter-card{
+            position: sticky;
+            margin-left: 110px;
+            top: 85px;
             border-radius: 32px;
-            height: 600px;
-            width: 250px;
+            height: 500px;
+            width: 350px;
             background-color: var(--custom-card-bg);
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            z-index: 1;
 
         }
         .search-bar{
@@ -181,74 +205,60 @@
             border: 2px solid var(--accent) !important;
             border-radius: 10px !important;
         }
-        @media (max-width: 768px) {
 
-    body {
-        padding: 8px;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
-    }
-
-    .brand-logo {
-        font-size: 24px !important;
-    }
-
-    .brand-text {
-        font-size: 1.3rem;
-        text-align: center;
-    }
-
-    .profile-card {
-        position: static;
-        width: 90%;
-        margin: 16px auto;
-        left: auto;
-        top: auto;
-    }
-
-    .filter {
-        position: static;
-        width: 90%;
-        height: auto;
-        margin: 16px auto;
-        padding: 16px;
-    }
-
-    .filter-card {
-        width: 100%;
-        height: auto;
-        padding: 16px;
-    }
-
-    .card,
-    .form-card {
-        width: 95%;
-        max-width: 100%;
-        margin: 16px auto;
-    }
-
-    .search-bar {
-        width: 100% !important;
-    }
-
-    .profile-btn {
-        width: 40px;
-        height: 40px;
-        top: 0;
-    }
-
-    .profile-card-img {
-        width: 90px;
-        height: 90px;
-    }
-
-    .form-card-content {
-        padding: 16px;
-    }
+.vote-container {
+    display: flex;
+    
+    
+    font-size: 18px;
+    margin: 0 8px;
 }
 
-        
+.vote-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--brand);
+    transition: color 0.2s;
+}
+
+.vote-container button.active.upvote-button {
+    color: orange;
+}
+
+.vote-container button.active.downvote-button {
+    color: blue;
+}
+
+.vote-count {
+    margin: 4px 0;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* Modal arka planı */
+.modal {
+  display: none; /* Başlangıçta gizli */
+  position: fixed;
+  z-index: 1000; /* Üstte görünmesi için yüksek değer */
+  left: 0;
+  top: 0;
+  width: 100vw; 
+  min-height: 100vh;
+  height: auto;
+  background-color: rgba(0,0,0,0.5); /* Yarı saydam siyah */
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal içerik kutusu */
+.modal-content {
+    background-color: var(--custom-card-bg);
+    border-radius:14px;
+    width: 900px; 
+    margin-bottom:43px; 
+    max-width:520px;  
+    padding: 0.5rem 0;
+}
